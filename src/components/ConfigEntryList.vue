@@ -9,7 +9,6 @@
     <button @click="addEntry">Add</button>
   </div>
   <div v-for="entry in currentConfigEntries">
-    <!-- <input v-model="entry.id" /> -->
     <input v-model="entry.key" />
     <input v-model="entry.value" />
   </div>
@@ -18,14 +17,15 @@
 <script lang="ts" setup>
 import type { ConfigurationEntry as IConfigurationEntry } from "@/data/configurationEntries";
 import { v4 as uuidv4 } from "uuid";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 const props = defineProps<{
   configEntries: IConfigurationEntry[];
 }>();
 
 const newEntry = ref("");
-const currentConfigEntries = ref(props.configEntries);
+const currentConfigEntries = computed(() => props.configEntries);
+const emit = defineEmits(["addNewEntry"]);
 
 const addEntry = () => {
   const valueToAdd = newEntry.value.trim();
@@ -35,11 +35,12 @@ const addEntry = () => {
   const isEntryAlreadyInList = currentConfigEntries.value.find(keyIsNewEntry);
   if (isNewEntryEmpty || isEntryAlreadyInList) return;
 
-  currentConfigEntries.value.push({
+  emit("addNewEntry", {
     id: uuidv4(),
     key: valueToAdd,
     value: "",
   });
+
   newEntry.value = "";
 };
 </script>
