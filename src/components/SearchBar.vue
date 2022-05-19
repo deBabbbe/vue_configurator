@@ -1,5 +1,5 @@
 <template>
-  <input v-model="searchValue" @change="setFilter" />
+  <input v-model="searchValue" v-on:keyup="setFilter" />
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
