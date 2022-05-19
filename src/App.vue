@@ -22,7 +22,6 @@ const filterEntries = (searchValue: string) => {
 };
 
 const addNewEntry = (newEntry: IConfigurationEntry): void => {
-  console.warn("geht", newEntry.key);
   currentConfigEntries.value.push(newEntry);
 };
 </script>
