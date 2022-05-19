@@ -5,18 +5,18 @@
       v-on:keyup.enter="addEntry"
       v-model="newEntry"
       placeholder="Insert..."
+      style="margin: 0 0 10px 10px"
     />
     <button @click="addEntry">Add</button>
   </div>
-  <div v-for="entry in currentConfigEntries">
-    <input v-model="entry.key" />
+  <div v-for="entry in currentConfigEntries" style="margin: 0 0 10px 10px">
+    <input v-model="entry.key" style="margin-right: 5px" />
     <input v-model="entry.value" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import type { ConfigurationEntry as IConfigurationEntry } from "@/data/configurationEntries";
-import { v4 as uuidv4 } from "uuid";
 import { computed, ref } from "vue";
 
 const props = defineProps<{
@@ -35,11 +35,7 @@ const addEntry = () => {
   const isEntryAlreadyInList = currentConfigEntries.value.find(keyIsNewEntry);
   if (isNewEntryEmpty || isEntryAlreadyInList) return;
 
-  emit("addNewEntry", {
-    id: uuidv4(),
-    key: valueToAdd,
-    value: "",
-  });
+  emit("addNewEntry", valueToAdd);
 
   newEntry.value = "";
 };
