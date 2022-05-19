@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { ConfigurationEntry as IConfigurationEntry } from "@/data/configurationEntries";
+import type { IConfigurationEntry } from "@/data/configurationEntries";
 import { computed, ref } from "vue";
 
 const props = defineProps<{

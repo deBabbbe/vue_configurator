@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-interface IConfigurationEntry {
+export interface IConfigurationEntry {
   id: string;
   key: string;
   value: string;

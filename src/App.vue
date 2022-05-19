@@ -25,7 +25,7 @@ const filterEntries = (searchValue: string) => {
   });
 };
 
-const addNewEntry = (newEntry: IConfigurationEntry): void => {
+const addNewEntry = (newEntry: string): void => {
   configEntries.push({
     id: uuidv4(),
     key: newEntry,
