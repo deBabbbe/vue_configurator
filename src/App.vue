@@ -1,11 +1,8 @@
 <template>
-  <ApplicationBar />
+  <ApplicationBar :userName="userName" />
   <ActionBar />
   <SearchBar @searchValueChanged="filterEntries" @addNewEntry="addNewEntry" />
-  <ConfigEntryList
-    :configEntries="currentConfigEntries"
-    @addNewEntry="addNewEntry"
-  />
+  <ConfigEntryList :configEntries="currentConfigEntries" @addNewEntry="addNewEntry" />
 </template>
 
 <script setup lang="ts">
@@ -18,7 +15,8 @@ import ConfigEntryList from "./components/ConfigEntryList.vue";
 import SearchBar from "./components/SearchBar.vue";
 import { configEntries } from "./data/configurationEntries";
 
-let currentConfigEntries = ref(configEntries);
+const currentConfigEntries = ref(configEntries);
+const userName = ref("Ritter, Claudia");
 
 const filterEntries = (searchValue: string) => {
   currentConfigEntries.value = configEntries.filter((entry) => {
