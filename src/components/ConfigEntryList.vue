@@ -28,15 +28,7 @@ const currentConfigEntries = computed(() => props.configEntries);
 const emit = defineEmits(["addNewEntry"]);
 
 const addEntry = () => {
-  const valueToAdd = newEntry.value.trim();
-  const isNewEntryEmpty = valueToAdd === "";
-  const keyIsNewEntry = (entry: IConfigurationEntry): boolean =>
-    entry.key === valueToAdd;
-  const isEntryAlreadyInList = currentConfigEntries.value.find(keyIsNewEntry);
-  if (isNewEntryEmpty || isEntryAlreadyInList) return;
-
-  emit("addNewEntry", valueToAdd);
-
+  emit("addNewEntry", newEntry);
   newEntry.value = "";
 };
 </script>

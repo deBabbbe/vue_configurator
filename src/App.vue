@@ -9,6 +9,7 @@
 </template>
 
 <script setup lang="ts">
+import type { IConfigurationEntry } from "@/data/configurationEntries";
 import { v4 as uuidv4 } from "uuid";
 import { ref } from "vue";
 import ActionBar from "./components/ActionBar.vue";
@@ -26,9 +27,16 @@ const filterEntries = (searchValue: string) => {
 };
 
 const addNewEntry = (newEntry: string): void => {
+  const valueToAdd = newEntry.trim();
+  const isNewEntryEmpty = valueToAdd === "";
+  const keyIsNewEntry = (entry: IConfigurationEntry): boolean =>
+    entry.key === valueToAdd;
+  const isEntryAlreadyInList = currentConfigEntries.value.find(keyIsNewEntry);
+  if (isNewEntryEmpty || isEntryAlreadyInList) return;
+
   configEntries.push({
     id: uuidv4(),
-    key: newEntry,
+    key: valueToAdd,
     value: "",
   });
 };
