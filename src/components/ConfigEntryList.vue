@@ -6,7 +6,7 @@
     style="margin: 0 0 10px 10px"
   >
     <input v-model="entry.key" style="margin-right: 5px" />
-    <input v-model="entry.value" />
+    <input v-model="entry.value" placeholder="[PLEASE FILL VALUE]" />
     <span>
       <font-awesome-icon
         icon="fa-ban"
@@ -43,5 +43,10 @@ const removeEntry = (entry: IConfigurationEntry) => {
 
 .config-entry-list input {
   width: 47%;
+}
+
+.config-entry-list input:placeholder-shown {
+  border: 5px solid red;
+  width: calc(47% - 5px);
 }
 </style>
