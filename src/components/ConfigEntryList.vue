@@ -1,5 +1,9 @@
 <template>
-  <div v-for="entry in currentConfigEntries" style="margin: 0 0 10px 10px">
+  <div
+    v-for="entry in currentConfigEntries"
+    v-bind:key="entry.key"
+    style="margin: 0 0 10px 10px"
+  >
     <input v-model="entry.key" style="margin-right: 5px" />
     <input v-model="entry.value" />
     <button @click="removeEntry(entry)">Remove</button>
