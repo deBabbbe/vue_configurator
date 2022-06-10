@@ -1,13 +1,13 @@
 import { v4 as uuidv4 } from "uuid";
 
-export interface IkeyurationEntry {
+export interface IConfigurationEntry {
   id: string;
   key: string;
   value: string;
   type: string;
 }
 
-export const configEntries: IkeyurationEntry[] = [
+export const configEntries: IConfigurationEntry[] = [
   {
     id: uuidv4(),
     key: "Common.Imap.Username",
