@@ -1,12 +1,20 @@
 <template>
   <div
+    class="config-entry-list"
     v-for="entry in currentConfigEntries"
     v-bind:key="entry.key"
     style="margin: 0 0 10px 10px"
   >
     <input v-model="entry.key" style="margin-right: 5px" />
     <input v-model="entry.value" />
-    <button @click="removeEntry(entry)">Remove</button>
+    <span>
+      <font-awesome-icon
+        icon="fa-ban"
+        class="button"
+        title="Löschen"
+        @click="removeEntry(entry)"
+      />
+    </span>
   </div>
 </template>
 
@@ -23,3 +31,17 @@ const removeEntry = (entry: IConfigurationEntry) => {
   props.configEntries.splice(props.configEntries.indexOf(entry), 1);
 };
 </script>
+<style>
+.config-entry-list {
+  width: auto;
+}
+
+.config-entry-list .button {
+  margin-left: 10px;
+  color: grey;
+}
+
+.config-entry-list input {
+  width: 47%;
+}
+</style>
