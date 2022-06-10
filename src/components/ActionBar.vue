@@ -5,35 +5,35 @@
       <font-awesome-icon
         icon="fa-rotate-right"
         class="action-bar-button"
-        title="Add entry"
+        title="Neu laden"
       />
     </span>
     <span>
       <font-awesome-icon
         icon="fa-floppy-disk"
         class="action-bar-button"
-        title="Add entry"
+        title="Speichern"
       />
     </span>
     <span>
       <font-awesome-icon
         icon="fa-folder-open"
         class="action-bar-button"
-        title="Add entry"
+        title="Öffnen"
       />
     </span>
     <span>
       <font-awesome-icon
         icon="fa-square-plus"
         class="action-bar-button"
-        title="Add entry"
+        title="Hinzufügen"
       />
     </span>
     <span>
       <font-awesome-icon
         icon="fa-eye-slash"
         class="action-bar-button"
-        title="Add entry"
+        title="Typ ausblenden"
       />
     </span>
   </div>
