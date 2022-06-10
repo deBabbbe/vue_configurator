@@ -4,18 +4,30 @@ import App from "./App.vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
+  faCircleInfo,
+  faCircleQuestion,
+  faEyeSlash,
+  faFloppyDisk,
+  faFolderOpen,
+  faPowerOff,
+  faRotateRight,
+  faSquarePlus,
+  faTriangleExclamation,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+library.add(
+  faUser,
   faEyeSlash,
   faFloppyDisk,
   faFolderOpen,
   faRotateRight,
   faSquarePlus,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-library.add(faSquarePlus);
-library.add(faRotateRight);
-library.add(faFloppyDisk);
-library.add(faFolderOpen);
-library.add(faEyeSlash);
+  faCircleQuestion,
+  faTriangleExclamation,
+  faCircleInfo,
+  faPowerOff
+);
 
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
