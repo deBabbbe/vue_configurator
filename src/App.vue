@@ -2,6 +2,7 @@
   <div class="App">
     <ApplicationBar :userName="userName" />
     <ActionBar />
+    <ConfigFileSelector />
     <SearchBar @searchValueChanged="filterEntries" @addNewEntry="addNewEntry" />
     <ConfigEntryList
       :configEntries="currentConfigEntries"
@@ -17,6 +18,7 @@ import { ref } from "vue";
 import ActionBar from "./components/ActionBar.vue";
 import ApplicationBar from "./components/ApplicationBar.vue";
 import ConfigEntryList from "./components/ConfigEntryList.vue";
+import ConfigFileSelector from "./components/ConfigFileSelector.vue";
 import SearchBar from "./components/SearchBar.vue";
 import { configEntries } from "./data/configurationEntries";
 
