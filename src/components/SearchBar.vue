@@ -22,6 +22,6 @@ const setFilter = (e: KeyboardEvent): void => {
   width: auto;
 }
 .search-bar input {
-  width: 100%;
+  width: calc(100% - 10px);
 }
 </style>
