@@ -1,8 +1,13 @@
 <template>
-  <ApplicationBar :userName="userName" />
-  <ActionBar />
-  <SearchBar @searchValueChanged="filterEntries" @addNewEntry="addNewEntry" />
-  <ConfigEntryList :configEntries="currentConfigEntries" @addNewEntry="addNewEntry" />
+  <div class="App">
+    <ApplicationBar :userName="userName" />
+    <ActionBar />
+    <SearchBar @searchValueChanged="filterEntries" @addNewEntry="addNewEntry" />
+    <ConfigEntryList
+      :configEntries="currentConfigEntries"
+      @addNewEntry="addNewEntry"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -39,3 +44,11 @@ const addNewEntry = (newEntry: string): void => {
   });
 };
 </script>
+<style>
+.App {
+  background-color: #282c34;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+</style>

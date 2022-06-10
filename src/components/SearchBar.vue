@@ -1,9 +1,7 @@
 <template>
-  <input
-    v-model="searchValue"
-    v-on:keyup="setFilter"
-    style="margin: 10px 0 10px 10px"
-  />
+  <div class="search-bar">
+    <input v-model="searchValue" v-on:keyup="setFilter" />
+  </div>
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
@@ -18,3 +16,12 @@ const setFilter = (e: KeyboardEvent): void => {
   emit("searchValueChanged", searchValue.value);
 };
 </script>
+<style>
+.search-bar {
+  margin: 10px;
+  width: auto;
+}
+.search-bar input {
+  width: 100%;
+}
+</style>
