@@ -32,10 +32,6 @@ const removeEntry = (entry: IConfigurationEntry) => {
 };
 </script>
 <style>
-.config-entry-list {
-  width: auto;
-}
-
 .config-entry-list .button {
   margin-left: 10px;
   color: grey;
