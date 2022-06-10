@@ -43,6 +43,7 @@ const addNewEntry = (newEntry: string): void => {
     id: uuidv4(),
     key: valueToAdd,
     value: "",
+    type: "string",
   });
 };
 </script>
