@@ -4,6 +4,7 @@ import App from "./App.vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
+  faBan,
   faCircleInfo,
   faCircleQuestion,
   faEyeSlash,
@@ -26,7 +27,8 @@ library.add(
   faCircleQuestion,
   faTriangleExclamation,
   faCircleInfo,
-  faPowerOff
+  faPowerOff,
+  faBan
 );
 
 const app = createApp(App);
