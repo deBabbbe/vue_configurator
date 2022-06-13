@@ -33,7 +33,6 @@ const filterEntries = (searchValue: string) => {
 };
 
 const removeConfigEntry = (configEntry: IConfigurationEntry) => {
-  console.log("removeConfigEntry", configEntry);
   currentConfigEntries.value = currentConfigEntries.value.filter((entry) => {
     return entry.key !== configEntry.key;
   });
@@ -41,7 +40,6 @@ const removeConfigEntry = (configEntry: IConfigurationEntry) => {
 };
 
 const reloadEntries = () => {
-  console.log("reloadEntries");
   currentConfigEntries.value = configEntries;
   visibleConfigEntries.value = configEntries;
 };
