@@ -12,7 +12,7 @@
         icon="fa-ban"
         class="button"
         title="Löschen"
-        @click="removeEntry(entry)"
+        @click="emit('removeConfigEntry', entry)"
       />
     </span>
   </div>
@@ -27,9 +27,7 @@ const props = defineProps<{
 }>();
 
 const currentConfigEntries = computed(() => props.configEntries);
-const removeEntry = (entry: IConfigurationEntry) => {
-  props.configEntries.splice(props.configEntries.indexOf(entry), 1);
-};
+const emit = defineEmits(["removeConfigEntry"]);
 </script>
 <style>
 .config-entry-list .button {

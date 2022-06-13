@@ -1,12 +1,12 @@
 <template>
   <div class="App">
     <ApplicationBar :userName="userName" />
-    <ActionBar />
+    <ActionBar @reload="reloadEntries" />
     <ConfigFileSelector />
     <SearchBar @searchValueChanged="filterEntries" @addNewEntry="addNewEntry" />
     <ConfigEntryList
-      :configEntries="currentConfigEntries"
-      @addNewEntry="addNewEntry"
+      :configEntries="visibleConfigEntries"
+      @removeConfigEntry="removeConfigEntry"
     />
   </div>
 </template>
@@ -23,12 +23,27 @@ import SearchBar from "./components/SearchBar.vue";
 import { configEntries } from "./data/configurationEntries";
 
 const currentConfigEntries = ref(configEntries);
+const visibleConfigEntries = ref(configEntries);
 const userName = ref("Ritter, Claudia");
 
 const filterEntries = (searchValue: string) => {
-  currentConfigEntries.value = configEntries.filter((entry) => {
+  visibleConfigEntries.value = currentConfigEntries.value.filter((entry) => {
     return entry.key?.toLowerCase().includes(searchValue.toLowerCase());
   });
+};
+
+const removeConfigEntry = (configEntry: IConfigurationEntry) => {
+  console.log("removeConfigEntry", configEntry);
+  currentConfigEntries.value = currentConfigEntries.value.filter((entry) => {
+    return entry.key !== configEntry.key;
+  });
+  visibleConfigEntries.value = currentConfigEntries.value;
+};
+
+const reloadEntries = () => {
+  console.log("reloadEntries");
+  currentConfigEntries.value = configEntries;
+  visibleConfigEntries.value = configEntries;
 };
 
 const addNewEntry = (newEntry: string): void => {
@@ -39,7 +54,7 @@ const addNewEntry = (newEntry: string): void => {
   const isEntryAlreadyInList = currentConfigEntries.value.find(keyIsNewEntry);
   if (isNewEntryEmpty || isEntryAlreadyInList) return;
 
-  configEntries.push({
+  currentConfigEntries.value.push({
     id: uuidv4(),
     key: valueToAdd,
     value: "",

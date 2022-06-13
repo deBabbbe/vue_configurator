@@ -1,3 +1,6 @@
+<script setup lang="ts">
+const emit = defineEmits(["reload"]);
+</script>
 <template>
   <div className="ActionBar">
     Configurator
@@ -6,6 +9,7 @@
         icon="fa-rotate-right"
         class="action-bar-button"
         title="Neu laden"
+        @click="emit('reload')"
       />
     </span>
     <span>
