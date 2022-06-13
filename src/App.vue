@@ -24,7 +24,7 @@ import { configEntries } from "./data/configurationEntries";
 
 const currentConfigEntries = ref(configEntries);
 const visibleConfigEntries = ref(configEntries);
-const userName = ref("Ritter, Claudia");
+const userName = "Ritter, Claudia";
 
 const filterEntries = (searchValue: string) => {
   visibleConfigEntries.value = currentConfigEntries.value.filter((entry) => {
